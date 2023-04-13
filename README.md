@@ -15,7 +15,7 @@ We develop this project by taking idea from "https://arxiv.org/abs/1907.08871", 
 
 
 ## Citation
-this code come theme come from below paper
+If the resource is useful please cite the following paper:
 ```
 @article{miah2023dynamic,
   title={Dynamic Hand Gesture Recognition using Multi-Branch Attention Based Graph and General Deep Learning Model},
