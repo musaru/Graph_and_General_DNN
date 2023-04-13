@@ -7,7 +7,7 @@ The dynamic hand skeleton data have become increasingly attractive to widely stu
 
 **Dataset:**
 We evaluated the model with Three Dataset
-1. MSRA Dataset 
+1. MSRA Dataset https://jimmysuen.github.io/
 2. Shrec Dataset  http://www-rech.telecom-lille.fr/shrec2017-hand/
 3. DhG dataset  http://www-rech.telecom-lille.fr/DHGdataset/
 
