@@ -12,3 +12,58 @@ We evaluated the model with Three Dataset
 3. DhG dataset  http://www-rech.telecom-lille.fr/DHGdataset/
 
 We develop this project by taking idea from "https://arxiv.org/abs/1907.08871", thanks them to open their project code and everything in public."https://github.com/yuxiaochen1103/DG-STA.git"
+
+
+Journal
+@article{miah2023dynamic,
+  title={Dynamic Hand Gesture Recognition using Multi-Branch Attention Based Graph and General Deep Learning Model},
+  author={Miah, Abu Saleh Musa and Hasan, Md Al Mehedi and Shin, Jungpil},
+  journal={IEEE Access},
+  year={2023},
+  publisher={IEEE}
+
+}
+@article{shin2023korean,
+  title={Korean Sign Language Recognition Using Transformer-Based Deep Neural Network},
+  author={Shin, Jungpil and Musa Miah, Abu Saleh and Hasan, Md Al Mehedi and Hirooka, Koki and Suzuki, Kota and Lee, Hyoun-Sup and Jang, Si-Woong},
+  journal={Applied Sciences},
+  volume={13},
+  number={5},
+  pages={3029},
+  year={2023},
+  publisher={MDPI}
+}
+
+@article{miah2023multistage,
+  title={Multistage Spatial Attention-Based Neural Network for Hand Gesture Recognition},
+  author={Miah, Abu Saleh Musa and Hasan, Md Al Mehedi and Shin, Jungpil and Okuyama, Yuichi and Tomioka, Yoichi},
+  journal={Computers},
+  volume={12},
+  number={1},
+  pages={13},
+  year={2023},
+  publisher={MDPI}
+}
+@article{miah2022bensignnet,
+  title={BenSignNet: Bengali Sign Language Alphabet Recognition Using Concatenated Segmentation and Convolutional Neural Network},
+  author={Miah, Abu Saleh Musa and Shin, Jungpil and Hasan, Md Al Mehedi and Rahim, Md Abdur},
+  journal={Applied Sciences},
+  volume={12},
+  number={8},
+  pages={3933},
+  year={2022},
+  publisher={MDPI}
+}
+
+@article{miahrotation,
+  title={Rotation, Translation and Scale Invariant Sign Word Recognition Using Deep Learning},
+  author={Miah, Abu Saleh Musa and Shin, Jungpil and Hasan, Md Al Mehedi and Rahim, Md Abdur and Okuyama, Yuichi},
+journal={ Computer Systems Science and Engineering },
+  volume={44},
+  number={3},
+  pages={2521–2536},
+  year={2023},
+  publisher={TechSchince}
+
+}
+
