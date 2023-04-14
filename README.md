@@ -13,7 +13,6 @@ We evaluated the model with Three Dataset
 2. Shrec Dataset  http://www-rech.telecom-lille.fr/shrec2017-hand/
 3. DhG dataset  http://www-rech.telecom-lille.fr/DHGdataset/
 
-We develop this project by taking idea from "https://arxiv.org/abs/1907.08871", thanks them to open their project code and everything in public."https://github.com/yuxiaochen1103/DG-STA.git"
 
 
 ## Citation
@@ -79,5 +78,7 @@ journal={ Computer Systems Science and Engineering },
 }
 ```
 ## Acknowledgement
+We develop this project by taking theme andd base from "https://arxiv.org/abs/1907.08871", thanks them to open their project code and everything in public."https://github.com/yuxiaochen1103/DG-STA.git"
+
 
 Part of our code is borrowed from the (https://arxiv.org/abs/1907.08871). We thank to the authors for releasing their codes.
