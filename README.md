@@ -7,26 +7,29 @@ The dynamic hand skeleton data have become increasingly attractive to widely stu
 ![Graphical_Abstract](https://user-images.githubusercontent.com/2803163/231707385-5d163d21-694f-49a2-ae91-adb587fd7f77.jpg)
 
 ## Code Running Instruction:
+```
 1. Download the dataset from the below link. ## Dataset
 2. Run: Load_Skelton_Shrec_depth_Data.py file in the directory; this will create each video in one sample, with N frames or 8 frames.   we have three files for three dataset, Shrec, DGH and MSRA dataset.
 3. Run: Hand_dataset function, which can combine sample and label under mydataset file. 
 4. call:  torch.utils.data.DataLoader to make a batch  https://pytorch.org/tutorials/beginner/basics/data_tutorial.html
 5. Call the model: \\
-    model = MultiBranch_Attention_GG_DLM(class_num=28, dp_rate=0.001)
+   
+    model = MultiBranch_Attention_GG_DLM(class_num=28, dp_rate=0.001).
     model = torch.nn.DataParallel(model).cuda() \\
-5.Run N epochs: https://lightning.ai/docs/pytorch/stable/common/trainer.html    like below \\
-    for epoch in range(args.epochs):
-        print("\ntraining.............")
-        model.train()
-        start_time = time.time()
-        #training
-        for i, batched in enumerate(train_loader):
-               data = batched["skeleton"].float()
-               label = batched["label"]
-               predicted = model(data)
-               acc = get_acc(predicted, label)
-               loss = criterion(predicted,label)
-               model.zero_grad()
+5.Run N epochs: https://lightning.ai/docs/pytorch/stable/common/trainer.html    like below \\.
+
+    for epoch in range(args.epochs):.
+        print("\ntraining.............").
+        model.train().
+        start_time = time.time().
+        #training.
+        for i, batched in enumerate(train_loader):.
+               data = batched["skeleton"].float().
+               label = batched["label"].
+               predicted = model(data).
+               acc = get_acc(predicted, label).
+               loss = criterion(predicted,label).
+               model.zero_grad().
                loss.backward()
                model_solver.step()
        #evaluation
@@ -36,9 +39,9 @@ The dynamic hand skeleton data have become increasingly attractive to widely stu
                label = batched["label"]
                predicted = model(data)
                acc = get_acc(predicted, label)
-   .......................................
+   
        
-        
+        ```
 
 ## Dataset:
 
