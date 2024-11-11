@@ -6,6 +6,40 @@ If you used this resource please cited the following paper  "Dynamic Hand Gestur
 The dynamic hand skeleton data have become increasingly attractive to widely studied for the recognition of hand gestures that contain 3D coordinates of hand joints. Many researchers have been working to develop skeleton-based hand gesture recognition systems using various discriminative spatial-temporal attention features by calculating the dependencies between the joints. However, these methods may face difficulties in achieving high performance and owing generalizability due to their inefficient features. To overcome these challenges, we proposed a Multi-branch attention-based graph and a general deep-learning model to recognize hand gestures by extracting all possible types of skeleton-based features. We used two graph-based neural network channels in our multi-branch architectures and one general neural network channel. In graph-based neural network channels, one channel first uses the spatial attention module and then the temporal attention module to produce the spatial-temporal features. In contrast, we produced temporal-spatial features in the second channel using the reverse sequence of the first branch. In the last branch, general deep learning-based features are extracted using a general deep neural network module. The final feature vector was constructed by concatenating the spatial-temporal, temporal-spatial, and general features and feeding them into the fully connected layer. We included position embedding and mask operation for both spatial and temporal attention modules to track the sequence of the node and reduce the computational complexity of the system. Our model achieved 94.12%, 92.00%, and 97.01% accuracy after evaluation with MSRA, DHG, and SHREC’17 benchmark datasets, respectively. The high-performance accuracy and low computational cost proved that the proposed method outperformed the existing state-of-the-art methods.
 ![Graphical_Abstract](https://user-images.githubusercontent.com/2803163/231707385-5d163d21-694f-49a2-ae91-adb587fd7f77.jpg)
 
+## Code Running Instruction:
+1. Download the dataset from the below link. ## Dataset
+2. Run: Load_Skelton_Shrec_depth_Data.py file in the directory; this will create each video in one sample, with N frames or 8 frames.   we have three files for three dataset, Shrec, DGH and MSRA dataset.
+3. Run: Hand_dataset function, which can combine sample and label under mydataset file. 
+4. call:  torch.utils.data.DataLoader to make a batch  https://pytorch.org/tutorials/beginner/basics/data_tutorial.html
+5. Call the model:
+    model = MultiBranch_Attention_GG_DLM(class_num=28, dp_rate=0.001)
+    model = torch.nn.DataParallel(model).cuda()
+5.Run N epochs: https://lightning.ai/docs/pytorch/stable/common/trainer.html    like below
+    for epoch in range(args.epochs):
+        print("\ntraining.............")
+        model.train()
+        start_time = time.time()
+        #training
+        for i, batched in enumerate(train_loader):
+               data = batched["skeleton"].float()
+               label = batched["label"]
+               predicted = model(data)
+               acc = get_acc(predicted, label)
+               loss = criterion(predicted,label)
+               model.zero_grad()
+               loss.backward()
+               model_solver.step()
+       #evaluation
+       with torch.no_grad():
+       for i, batched in enumerate(val_loader):
+               data = batched["skeleton"].float()
+               label = batched["label"]
+               predicted = model(data)
+               acc = get_acc(predicted, label)
+   .......................................
+       
+        
+
 ## Dataset:
 
 We evaluated the model with Three Dataset
