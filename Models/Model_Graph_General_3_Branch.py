@@ -316,5 +316,5 @@ class MultiBranch_Attention_GG_DLM(nn.Module):
     
 #call the model
 input=torch.randn(2,8,22,3).cuda()
-model=MultiBranch_Attention_GG_DLM(num_classes=5, dp_rate=0.1).cuda()
+model=MultiBranch_Attention_GG_DLM(num_classes=28, dp_rate=0.1).cuda()
 Output=model(input)
