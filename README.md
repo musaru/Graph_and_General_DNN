@@ -41,7 +41,7 @@ The dynamic hand skeleton data have become increasingly attractive to widely stu
                acc = get_acc(predicted, label)
    
        
-        ```
+```
 
 ## Dataset:
 
