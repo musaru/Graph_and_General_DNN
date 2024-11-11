@@ -1,1 +1,53 @@
+code run example: 
+import torch
+from torch.utils.data import DataLoader
+from your_model_file import MultiBranch_Attention_GG_DLM
+from your_dataset_loader import YourDatasetClass  # Custom dataset loader
+
+# Load dataset
+train_dataset = YourDatasetClass(split='train')  # Modify accordingly
+test_dataset = YourDatasetClass(split='test')    # Modify accordingly
+
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
+
+# Initialize model, loss function, and optimizer
+model = MultiBranch_Attention_GG_DLM(num_classes=5, dp_rate=0.1).cuda()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+criterion = torch.nn.CrossEntropyLoss()
+
+# Training Loop
+for epoch in range(num_epochs):
+    model.train()
+    for data in train_loader:
+        inputs, labels = data
+        inputs, labels = inputs.cuda(), labels.cuda()
+
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+
+    print(f'Epoch {epoch + 1}, Loss: {loss.item()}')
+
+# Testing Loop (Subject-Independent)
+model.eval()
+all_preds = []
+all_labels = []
+
+with torch.no_grad():
+    for data in test_loader:
+        inputs, labels = data
+        inputs, labels = inputs.cuda(), labels.cuda()
+
+        outputs = model(inputs)
+        _, predicted = torch.max(outputs, 1)
+        
+        all_preds.append(predicted)
+        all_labels.append(labels)
+
+# Compute accuracy
+accuracy = (torch.cat(all_preds) == torch.cat(all_labels)).float().mean()
+print(f'Subject-Independent Accuracy: {accuracy.item() * 100:.2f}%')
 
